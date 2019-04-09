@@ -1,0 +1,85 @@
+<div id="contact">
+  <div class="container p-4 py-lg-5">
+    <div data-animate="fadeIn" data-animate-duration="0.6">
+      <hr class="hr-lg mt-0 mb-3 w-10 mx-auto hr-primary" />
+      <h2 class="text-center text-uppercase font-weight-bold my-0">
+        ¡Cónoce más!
+      </h2>
+      <h5 class="text-center font-weight-light mt-2 mb-0 text-muted">
+        Nosotros nos ponemos en contacto contigo
+      </h5>
+      <hr class="mb-5 w-50 mx-auto" />
+    </div>
+    <div class="row" data-animate="fadeIn" data-animate-delay="0.1">
+      <div class="col-md-6">
+        <form [formGroup]="form" id="contact-form" role="form" (ngSubmit)="send()">
+          <div class="form-group" data-animate="fadeInDown" data-animate-delay="0.3">
+            <label class="sr-only" for="contact-email">Email</label>
+            <input formControlName="email" name="email" type="email" class="form-control" id="contact-email" placeholder="Email">
+            <small class="form-text text-muted"
+            *ngIf="form.controls.email.errors?.required && !form.pristine"
+            ><i class="text-danger">*</i> El correo es obligatorio</small>
+            <small class="form-text text-muted"
+            *ngIf="form.controls.email.errors?.email && !form.pristine"
+            ><i class="text-danger">*</i> El formato del correo es incorrecto</small>
+          </div>
+          <div class="form-group" data-animate="fadeInDown" data-animate-delay="0.4">
+            <label class="sr-only" for="contact-service">Servicio de interés</label>
+            <select formControlName="service" name="service" class="form-control" id="contact-service">
+                <option value="" selected disabled>Servicio de interés</option>
+                <option value="2">Soluciones ERP</option>
+                <option value="3">Desarrollo web y móvil</option>
+              </select>
+              <small class="form-text text-muted"
+              *ngIf="form.controls.service.errors?.required && !form.pristine"
+              ><i class="text-danger">*</i> Selecciona una opción</small>
+            </div>
+          <div class="form-group" data-animate="fadeInDown" data-animate-delay="0.5">
+            <label class="sr-only" for="contact-message">¿Inquietudes?</label>
+            <textarea formControlName="message" name="message" rows="5" 
+            class="form-control" id="contact-message" placeholder="Exprésate"></textarea>
+          </div>
+          <button type="submit" [disabled]="!form.valid" class="btn btn-outline-primary btn-lg">Enviar información</button>
+        </form>
+      </div>
+      <div class="col-md-5 offset-md-1 mt-4 mt-md-0" data-animate="fadeIn" data-animate-delay="0.4">
+        <p class="mb-1">
+          <abbr title="Address">
+            <i class="fas fa-building pr-2"></i></abbr> 
+            <a href="https://www.google.com/maps/place/Calle+Viveros+de+Atizap%C3%A1n+66,+Hab+Viveros+de+la+Loma,+54080+Tlalnepantla,+M%C3%A9x./@19.5233313,-99.2229444,17z/data=!3m1!4b1!4m5!3m4!1s0x85d21d32d05a4a49:0x55655d5b07e99095!8m2!3d19.5233313!4d-99.2207557"
+            target="_blank" class="text-dark" style="text-decoration: none;">
+              Av. Viveros de Atizapan 66, Viveros de la loma, Tlalnepantla, Estado de México
+            </a>
+        </p>
+        <p class="mb-1">
+          <abbr title="Email"><i class="fa fa-envelope pr-2"></i></abbr> 
+          <a class="text-dark" href="mailto:contacto@ez-tek.com.mx" style="text-decoration: none;">contacto@ez-tek.com.mx</a>
+        </p>
+        <p class="mb-0">
+          <abbr title="Phone"><i class="fas fa-mobile-alt pr-2"></i></abbr> 
+          <a class="text-dark" href="tel:5583670777" style="text-decoration: none;"> (55) 8367 0777</a><br>
+        </p>
+        <p class="mb-0">
+          <abbr title="Phone"><i class="fas fa-phone pr-2"></i></abbr> 
+          <a class="text-dark" href="tel:5576886815" style="text-decoration: none;">(55) 7688 6815</a><br>
+        </p>
+        <div class="bg-primary bg-shadow border-primary-darkend text-white p-4 pr-lg-6 mt-5 pos-relative">
+          <i class="fa fa-phone-square icon-10x icon-rotate-25 icon-bg icon-bg-r-ol icon-bg-b-ol op-3 text-white"></i>
+          <h4 class="my-0 font-weight-bold text-uppercase">
+            Nosotros te llamamos
+          </h4>
+          <hr class="hr-lg my-2 ml-0 hr-white w-20" />
+          <form id="callback-form" action="#" role="form">
+            <div class="input-group">
+              <label class="sr-only" for="callback-number">Tu número</label>
+              <input type="tel" class="form-control" id="callback-number" placeholder="Incluye la LADA">
+              <span class="input-group-append">
+                  <button class="btn btn-dark" type="button">Háblenme</button>
+                </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,17 +1,116 @@
-<!-- A vertical navbar -->
-<nav class="navbar bg-light">
+<div id="header">
+  <div class="header-upper">
+    <div class="header-inner container">
+      <div class="header-block-flex order-1 mr-auto">
+        <nav class="nav nav-sm header-block-flex">
+          <a class="nav-link d-md-none" href="login.html"><i class="fa fa-user"></i></a>  
+          <div class="header-divider header-divider-sm"></div>
+          <a class="nav-link text-xs text-uppercase d-none d-md-block" href="#login-modal" data-toggle="modal">
+            Ingresar</a>
+        </nav>
+        
+      </div>
+      <div class="nav nav-icons header-block order-12">
+        <a href="#" class="nav-link text-info mr-3"> 
+          <i class="fab fa-twitter-square"></i> 
+            <span class="sr-only">Twitter</span>
+        </a>
+        <a href="#" class="nav-link text-info mr-3"> 
+          <i class="fab fa-facebook-square"></i> 
+          <span class="sr-only">Facebook</span> 
+        </a>
+        <a href="#" class="nav-link text-info mr-3">
+          <i class="fab fa-linkedin"></i> 
+          <span class="sr-only">Linkedin</span> 
+        </a>
+      </div>
+    </div>
+  </div>
+  <div data-toggle="sticky">
 
-    <!-- Links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link 1</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link 2</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link 3</a>
-      </li>
-    </ul>
-  
-  </nav>
+    <div class="header">
+      <div class="header-inner container">
+        <div class="header-brand">
+          <a class="header-brand-text" [routerLink]="[ '/' ]" title="Inicio">
+            <h1 class="h2">
+              <img src="./assets/images/logo.png" width="200">
+            </h1>
+          </a>
+        </div>
+        <a href="#top" class="btn btn-link btn-icon header-btn float-right d-lg-none" 
+          data-toggle="off-canvas" data-target=".navbar-main" 
+          data-settings='{"cloneTarget":true, "targetClassExtras": "navbar-offcanvas"}'> 
+          <i class="fa fa-bars"></i> 
+        </a>
+        <div class="navbar navbar-expand-md navbar-static-top">
+          <div class="navbar-main collapse">
+            <ul class="nav navbar-nav navbar-nav-stretch float-lg-right dropdown-effect-fade">
+
+              <li class="nav-item dropdown dropdown-mega-menu dropdown-mega-menu-50">
+                <a href="#" class="nav-link dropdown-toggle" 
+                id="erp-menu" data-toggle="dropdown"
+                  data-hover="dropdown">Odoo / ERP</a>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <ul class="nav nav-pills nav-pills-border-bottom-inside flex-column flex-lg-row" role="tablist">
+                    <li class="nav-item"> 
+                      <a class="nav-link p-3 active text-center font-weight-bold text-uppercase"
+                        data-toggle="tab" data-target=".erp" role="tab" style="color: #343a40!important;">
+                        Centraliza tus operaciones con Odoo
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="tab-content py-3">
+                    <div class="tab-pane active show erp" role="tabpanel">
+                      <div class="row text-center">
+                        <div class="col-lg-4 py-2" *ngFor="let item of itemsErp">
+                            <a [routerLink]="[ item.url ]" style="text-decoration: none;">
+                              <i class="fas {{ item.icon }} icon-3x op-6 text-primary"></i>
+                              <h5 class="mt-2 text-dark">{{ item.title }}</h5>
+                            </a>
+                            <p class="text-sm mb-0">{{ item.description }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mx-auto text-center bg-light border border-secondary p-2 font-weight-bolder">
+                      <a [routerLink]="[ '/erp']" style="text-decoration: none;">Ver todos</a>
+                    </div>
+                </div>
+              </li>
+
+              <li class="nav-item dropdown dropdown-mega-menu dropdown-mega-menu-50">
+                  <a href="#" class="nav-link dropdown-toggle" 
+                  id="develop-menu" data-toggle="dropdown"
+                    data-hover="dropdown">Desarrollo</a>
+                  <div class="dropdown-menu dropdown-menu-right">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-pills nav-pills-border-bottom-inside flex-column flex-lg-row" role="tablist">
+                      <li class="nav-item"> 
+                        <a class="nav-link p-3 active text-center font-weight-bold text-uppercase"
+                          data-toggle="tab" data-target=".develop" role="tab" style="color: #343a40!important;">
+                          Mejora la experiencia de tus clientes con una
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="tab-content py-3">
+                        <div class="tab-pane active show develop" role="tabpanel">
+                          <div class="row text-center">
+                            <div class="col-lg-6 py-2" *ngFor="let item of itemsDevelop">
+                                <a [routerLink]="[ item.url ]" style="text-decoration: none;">
+                                  <i class="fas {{ item.icon }} icon-3x op-6 text-primary"></i>
+                                  <h5 class="mt-2 text-dark">{{ item.title }}</h5>
+                                </a>
+                                <p class="text-sm mb-0">{{ item.description }}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
