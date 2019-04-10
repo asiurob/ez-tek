@@ -39,7 +39,35 @@
             <textarea formControlName="message" name="message" rows="5" 
             class="form-control" id="contact-message" placeholder="Exprésate"></textarea>
           </div>
-          <button type="submit" [disabled]="!form.valid" class="btn btn-outline-primary btn-lg">Enviar información</button>
+          <button type="submit" 
+          [disabled]="!form.valid || loading" 
+          class="btn btn-outline-primary btn-lg btn-block">
+          <i *ngIf="loading" class="fas fa-sync fa-spin"></i>
+          Enviar información
+        </button>
+        <div [ngClass]="{'showMe': storeMailFail, 'hideMe': !storeMailFail}"
+          class="alert alert-danger alert-dismissible text-center mt-3" role="alert">
+          <button type="button" class="close" data-dismiss="alert" 
+            aria-label="Close" (click)="closeAlert($event, 'fail')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>{{ message }}</strong> <br>
+          {{ error }}<i>( code {{ code }} )</i>
+        </div>
+
+        <div [ngClass]="{'showMe': storeMailSuccess, 'hideMe': !storeMailSuccess}"
+          class="alert alert-success alert-dismissible text-center mt-3" role="alert">
+          <button type="button" class="close" data-dismiss="alert" 
+            aria-label="Close" (click)="closeAlert($event, 'success')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <strong>¡Hemos recibido tu petición!</strong> <br>
+          En menos de lo que crees un ejecutivo te enviará un correo, quédate pendiente
+        </div>
+        
+        <script>
+          $(".alert").alert();
+        </script>
         </form>
       </div>
       <div class="col-md-5 offset-md-1 mt-4 mt-md-0" data-animate="fadeIn" data-animate-delay="0.4">
